@@ -2,6 +2,16 @@
 
 set -e
 
+if ! curl --connect-timeout 10 \
+        --head \
+        --silent \
+        -o /dev/null \
+        "https://aur.archlinux.org/"
+then
+  echo "The AUR package repository is currently unavailable, please try again later."
+  exit
+fi
+
 omarchy-update-git
 omarchy-migrate
 omarchy-update-system-pkgs
