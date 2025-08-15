@@ -12,7 +12,7 @@ if ! curl --connect-timeout 10 \
         "https://aur.archlinux.org/"
 then
   echo "The AUR package repository is currently unavailable, please try again later"
-  exit
+  exit 255
 fi
 
 omarchy-update-git
