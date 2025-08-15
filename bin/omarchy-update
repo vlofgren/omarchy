@@ -8,7 +8,7 @@ set -e
 if ! curl --connect-timeout 10 \
         --head \
         --silent \
-        -o /dev/null\
+        -o /dev/null \
         "https://aur.archlinux.org/"
 then
   echo "The AUR package repository is currently unavailable, please try again later"
