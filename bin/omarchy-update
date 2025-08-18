@@ -8,6 +8,7 @@ set -e
 if ! curl --connect-timeout 10 \
         --head \
         --silent \
+        --user-agent "omarchy-update" \
         -o /dev/null \
         "https://aur.archlinux.org/"
 then
