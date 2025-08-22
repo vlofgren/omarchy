@@ -2,18 +2,10 @@
 
 set -e
 
-# Verify AUR is available before we potentially put the system in an inconsistent state
-# with non-obvious repair paths
-
-if ! curl --connect-timeout 10 \
-        --head \
-        --silent \
-        --user-agent "omarchy-update" \
-        -o /dev/null \
-        "https://aur.archlinux.org/"
-then
+# Verify AUR is available before updating
+if ! curl -s --connect-timeout 10 --head -A "omarchy-update" -o /dev/null "https://aur.archlinux.org/"; then
   echo "The AUR package repository is currently unavailable, please try again later"
-  exit 255
+  exit 1
 fi
 
 omarchy-update-git
