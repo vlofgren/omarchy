@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ! gum spin --spinner "globe" --title "Verifying that the AUR package repository is reachable, please stand by" -- \
-	  curl -s --retry 4 --connect-timeout 30 --head -A "omarchy-update" "https://aur.archlinux.org/"
+	  curl -s --retry 4 --connect-timeout 30 --head -A "omarchy-update" "https://aur.archlinux.org/static/images/rss.svg"
 then
   gum confirm "Can not reach the AUR package repository, proceed anyway?"
   exit $?
